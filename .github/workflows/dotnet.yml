@@ -1,0 +1,29 @@
+name: Build and Upload .NET 6 Project
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6
+        
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build project
+      run: dotnet build --configuration Release -r win-x64
+
+    - name: Publish artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-dotnet-app  # 可以根据需要更改
+        path: ./Downloader/bin/Release/net6.0/  # 更改为你项目生成文件的路径
