@@ -26,4 +26,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: my-dotnet-app  # 可以根据需要更改
-        path: ./Downloader/bin/Release/net6.0/  # 更改为你项目生成文件的路径
+        path: ./Downloader/bin/Release/net6.0-windows/  # 更改为你项目生成文件的路径
