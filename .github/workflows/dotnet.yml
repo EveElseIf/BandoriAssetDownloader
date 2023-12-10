@@ -20,7 +20,7 @@ jobs:
       run: dotnet restore
 
     - name: Build project
-      run: dotnet build --configuration Release -r win-x64
+      run: dotnet build --configuration Release
 
     - name: Publish artifacts
       uses: actions/upload-artifact@v2
